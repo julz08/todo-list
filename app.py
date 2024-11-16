@@ -24,8 +24,9 @@ while True:
         elif asklevel.lower() == 'one':
             itemlist = input("Which task are you looking for? (Enter the name of the task) ")
             read = db.search(todos.task == itemlist)
+            item = read[0]
             if read:
-                print(f'Task found: {read}')
+                print(f'Task found: Task: {item["task"]}, Importance: {item["importance"]}, Due Date: {item["dueDate"]}')
             else:
                 print("Task not found.")
         else:
