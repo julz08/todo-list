@@ -27,22 +27,12 @@ while True:
         else:
             print("You didn't enter 'all' or 'one'")
     elif userinput.lower() == 'update' or userinput == "3":
-        type = input("What do you want to update? (task, importance, or due) ")
-        if type.lower() == "task":
-            task = input("Which task do you want to update?")
-            nameTask = input("What name do you want to change it to?")
-            update = db.update({'task': nameTask}, todos.task == task)
-            print("Updated")
-        """ elif type.lower() == "importance":
-            task = input("Which task do you want to update?")
-            importanceTask = input("What importance do you want to change it to?")
-            update = db.update({'task': importanceTask}, todos.task == task)
-            print("Updated")
-        elif type.lower() == "due":
-            task = input("Which task do you want to update?")
-            dueTask = input("What due date do you want to change it to?")
-            update = db.update({'task': dueTask}, todos.task == task)
-            print("Updated") """
+        task = input("Which task do you want to update?")
+        nameTask = input("What name do you want to change it to?")
+        update = db.update({'task': nameTask}, todos.task == task)
+        print("Updated")
+    
+    
     
 
 
