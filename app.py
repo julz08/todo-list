@@ -27,10 +27,14 @@ while True:
         else:
             print("You didn't enter 'all' or 'one'")
     elif userinput.lower() == 'update' or userinput == "3":
-        task = input("Which task do you want to update?")
-        nameTask = input("What name do you want to change it to?")
+        task = input("Which task do you want to update? ")
+        nameTask = input("What name do you want to change it to? ")
         update = db.update({'task': nameTask}, todos.task == task)
-        print("Updated")
+    elif userinput.lower() == 'delete' or userinput == "4":
+        taskDelete = input("What task do you want to delete? ")
+        delete = db.remove(todos.task == taskDelete)
+    else:
+        print("You did not enter the command name or the command number.")
     
     
     
