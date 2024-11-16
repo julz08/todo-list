@@ -32,17 +32,17 @@ while True:
             task = input("Which task do you want to update?")
             nameTask = input("What name do you want to change it to?")
             update = db.update({'task': nameTask}, todos.task == task)
-            print("Updated " + update)
-        elif type.lower() == "importance":
+            print("Updated")
+        """ elif type.lower() == "importance":
             task = input("Which task do you want to update?")
-            nameTask = input("What importance do you want to change it to?")
-            update = db.update({'task': nameTask}, todos.task == task)
+            importanceTask = input("What importance do you want to change it to?")
+            update = db.update({'task': importanceTask}, todos.task == task)
             print("Updated")
         elif type.lower() == "due":
             task = input("Which task do you want to update?")
-            nameTask = input("What do you want to change it to?")
-            update = db.update({'task': nameTask}, todos.task == task)
-            print("Updated")
+            dueTask = input("What due date do you want to change it to?")
+            update = db.update({'task': dueTask}, todos.task == task)
+            print("Updated") """
     
 
 
