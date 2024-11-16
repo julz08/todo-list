@@ -18,8 +18,9 @@ while True:
     elif userinput.lower() == 'read' or userinput == "2":
         asklevel = input("Would you like to read all or one? (Enter all or one) ")
         if asklevel.lower() == 'all':
-            read = db.all()
-            print(read)
+            allData = db.all()
+            for data in allData:
+                print(f'Todo {data.doc_id}: {data["todo"]}')
         elif asklevel.lower() == 'one':
             itemlist = input("Which task are you looking for? (Enter the name of the task) ")
             read = db.search(todos.task == itemlist)
