@@ -40,12 +40,3 @@ while True:
         delete = db.remove(todos.task == taskDelete)
     else:
         print("You did not enter the command name or the command number.")
-    
-    
-    
-
-
-# create = db.insert
-# read = db.all()
-# update = db.update({'changed data'}, where you want to update)
-# delete = db.remove
