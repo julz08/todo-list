@@ -14,17 +14,20 @@ while True:
         task = input("What task would you like to add? ")
         importance = input("Of what importance is this? (High, Medium, Low) ")
         due = input("When is this due? ")
-        create = db.insert({'task': task, 'importance': importance, "Due Date" : due})
+        create = db.insert({'task': task, 'importance': importance, "dueDate" : due})
     elif userinput.lower() == 'read' or userinput == "2":
         asklevel = input("Would you like to read all or one? (Enter all or one) ")
         if asklevel.lower() == 'all':
             allData = db.all()
             for data in allData:
-                print(f'Todo {data.doc_id}: {data["todo"]}')
+                print(f'To-do {data.doc_id}: Task: {data["task"]}, Importance: {data["importance"]}, Due Date: {data["dueDate"]}')
         elif asklevel.lower() == 'one':
             itemlist = input("Which task are you looking for? (Enter the name of the task) ")
             read = db.search(todos.task == itemlist)
-            print(read)
+            if read:
+                print(f'Task found: {read}')
+            else:
+                print("Task not found.")
         else:
             print("You didn't enter 'all' or 'one'")
     elif userinput.lower() == 'update' or userinput == "3":
