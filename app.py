@@ -10,30 +10,39 @@ while True:
     print("4. Delete")
     
     userinput = input("Enter your command: ")
-    if userinput.lower == 'create' or userinput == "1":
+    if userinput.lower() == 'create' or userinput == "1":
         task = input("What task would you like to add? ")
         importance = input("Of what importance is this? (High, Medium, Low) ")
         due = input("When is this due? ")
         create = db.insert({'task': task, 'importance': importance, "Due Date" : due})
-    if userinput.lower == 'read' or userinput == "2":
+    elif userinput.lower() == 'read' or userinput == "2":
         asklevel = input("Would you like to read all or one? (Enter all or one) ")
-        if asklevel.lower == 'all':
+        if asklevel.lower() == 'all':
             read = db.all()
             print(read)
-        elif asklevel.lower == 'one':
+        elif asklevel.lower() == 'one':
             itemlist = input("Which task are you looking for? (Enter the name of the task) ")
             read = db.search(todos.task == itemlist)
             print(read)
         else:
-            print("You didn't enter 'add' or 'one'")
-    if userinput.lower == 'update' or userinput == "3":
+            print("You didn't enter 'all' or 'one'")
+    elif userinput.lower() == 'update' or userinput == "3":
         type = input("What do you want to update? (task, importance, or due) ")
-        if type.lower == "task":
+        if type.lower() == "task":
+            task = input("Which task do you want to update?")
+            nameTask = input("What name do you want to change it to?")
+            update = db.update({'task': nameTask}, todos.task == task)
+            print("Updated " + update)
+        elif type.lower() == "importance":
+            task = input("Which task do you want to update?")
+            nameTask = input("What importance do you want to change it to?")
+            update = db.update({'task': nameTask}, todos.task == task)
+            print("Updated " + update)
+        elif type.lower() == "due":
             task = input("Which task do you want to update?")
             nameTask = input("What do you want to change it to?")
-            update = db.update({'task': })
-        elif type.lower == "importance":
-        elif type.lower == "due":
+            update = db.update({'task': nameTask}, todos.task == task)
+            print("Updated " + update)
     
 
 
